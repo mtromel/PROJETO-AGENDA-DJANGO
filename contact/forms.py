@@ -12,7 +12,8 @@ class ContactForm(forms.ModelForm):
             attrs={
                 'accept': 'image/*',
             }
-        )
+        ),
+        required=False
     )
     # # dessa forma estou recriando o campo
     # first_name = forms.CharField(
