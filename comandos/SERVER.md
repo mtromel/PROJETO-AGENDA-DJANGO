@@ -75,6 +75,7 @@ No seu computador local
 
 ```
 git remote add agendarepo usuario@IP_SERVIDOR:~/agendarepo
+git remote rm agendarepo # caso precise remover o agendarepo
 git push agendarepo main
 ```
 
@@ -112,8 +113,6 @@ Cole os dados.
 ## Configurando o Django no servidor
 
 ```
-continue a partir daqui
-
 cd ~/agendaapp
 python3.11 -m venv venv
 . venv/bin/activate
@@ -129,6 +128,14 @@ python manage.py migrate
 python manage.py collectstatic
 python manage.py createsuperuser
 ```
+
+## Corrigir permissão de usuario no nginx para carregar CSS
+```
+sudo nano /etc/nginx/nginx.conf
+```
+Dentro do arquivo nginx.conf faça isso:
+#user www-data;  -- Comentar o usuário www-data
+user marcos; -- Adicionar o meu usuário
 
 ## Permitir arquivos maiores no nginx
 
